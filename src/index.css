@@ -1,0 +1,55 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-base:       #080c14;
+  --bg-panel:      #0d1220;
+  --bg-surface:    #111827;
+  --bg-hover:      #1a2236;
+  --border:        #1e2d45;
+  --border-bright: #2a3f5f;
+  --cyan:          #00d4ff;
+  --cyan-dim:      #0099bb;
+  --cyan-glow:     rgba(0, 212, 255, 0.12);
+  --green:         #10b981;
+  --red:           #ef4444;
+  --orange:        #f97316;
+  --amber:         #f59e0b;
+  --text-primary:  #e2e8f0;
+  --text-secondary:#94a3b8;
+  --text-muted:    #475569;
+  --font-ui:       'IBM Plex Sans', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan-dim); }
+
+::selection { background: var(--cyan-glow); color: var(--cyan); }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.animate-in { animation: fadeSlideIn 0.2s ease forwards; }
+.pulse { animation: pulse 1.4s ease-in-out infinite; }
